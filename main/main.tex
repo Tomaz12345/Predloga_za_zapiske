@@ -47,6 +47,11 @@
 \usepackage{graphicx}
 \graphicspath{ {../images/} }
 
+% no blank page
+\usepackage{atbegshi}
+\renewcommand{\cleardoublepage}{\clearpage}
+%\renewcommand{\clearpage}{}
+
 % theorems
 \theoremstyle{definition}
 \newtheorem{counter}{Counter}[section]
@@ -133,13 +138,16 @@
 \begin{document}
 
 \selectlanguage{slovene}
-\frontmatter
-\setcounter{page}{1}
+%\setcounter{page}{1}
 \renewcommand{\thepage}{}
 \newcommand{\sn}[1]{"`#1"'}
 
 \mymaketitle
 
+\clearpage
+%\AtBeginShipoutNext{\AtBeginShipoutDiscard}
+
+\frontmatter
 
 % kazalo
 \pagestyle{empty}
@@ -152,16 +160,25 @@
 \def\z{\hspace{1.9ex}}    %BETWEEN TWO 2-DIGIT NUMBERS
 \stackMath
 
-\cleardoublepage
+\clearpage
+\phantomsection
+
+\section*{Seznam uporabljenih kratic}
+
+\noindent\begin{tabular}{p{0.1\textwidth}|p{.8\textwidth}}
+  {\bf kratica} & {\bf izraz} \\ \hline
+  {\bf SVM}   & support vector machine (metoda podpornih vektorjev) \\
+\end{tabular}
+
+%\newpage
+\clearpage
 \phantomsection
 \addcontentsline{toc}{chapter}{Povzetek}
 \chapter*{Povzetek}
 
 Predloga.
 
-\newpage
-
-
+%\newpage
 
 \pagenumbering{arabic}
 
@@ -188,11 +205,23 @@ Podpoglavje. Citiranje: \cite{lamport1985latex}
 
 \input{../tex_files/chapter.tex}
 
-\cleardoublepage
+%\newpage
+\clearpage
 \phantomsection
+
 \addcontentsline{toc}{chapter}{Literatura}
 \bibliography{../bibtex/literatura}
 \bibliographystyle{plainnat}
+
+
+\clearpage
+\phantomsection
+
+\chapter*{Dodatki}
+\addcontentsline{toc}{chapter}{Dodatki}
+D.
+
+
 
 
 \end{document}
