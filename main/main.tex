@@ -54,7 +54,6 @@
 % no blank page
 \usepackage{atbegshi}
 \renewcommand{\cleardoublepage}{\clearpage}
-%\renewcommand{\clearpage}{}
 
 % theorems
 \theoremstyle{definition}
@@ -105,6 +104,8 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\ch}{\operatorname{char}}
 \newcommand*\Eval[3]{\left.#1\right\rvert_{#2}^{#3}}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{%
+            \node[shape=circle,fill=white!20,draw,inner sep=2pt] (char) {#1};}}
 
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
@@ -154,7 +155,6 @@
 \mymaketitle
 
 \clearpage
-%\AtBeginShipoutNext{\AtBeginShipoutDiscard}
 
 \frontmatter
 
@@ -179,7 +179,6 @@
   {\bf SVM}   & support vector machine (metoda podpornih vektorjev) \\
 \end{tabular}
 
-%\newpage
 \clearpage
 \phantomsection
 \addcontentsline{toc}{chapter}{Povzetek}
@@ -187,13 +186,12 @@
 
 Predloga.
 
-%\newpage
-
-\pagenumbering{arabic}
 
 \mainmatter
 \setcounter{page}{1}
 \pagestyle{fancy}
+
+\pagenumbering{arabic}
 
 \chapter{Uvod}
 
@@ -214,7 +212,6 @@ Podpoglavje. Citiranje: \cite{lamport1985latex}
 
 \input{../tex_files/chapter.tex}
 
-%\newpage
 \clearpage
 \phantomsection
 
